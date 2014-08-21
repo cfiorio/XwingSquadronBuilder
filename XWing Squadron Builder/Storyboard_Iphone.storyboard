@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="7dX-8F-SPm">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <scenes>
+        <!--Faction Table View Controller - Factions management-->
+        <scene sceneID="8up-5C-VEu">
+            <objects>
+                <tableViewController id="ADq-4L-Qw3" customClass="XWFactionTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="n7x-w1-uyu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FactionTableViewCell" id="WXq-t2-tgU" customClass="XWFactionTableViewCell">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WXq-t2-tgU" id="raU-lj-s9F">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSb-PU-EGI">
+                                            <rect key="frame" x="20" y="11" width="210" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="nSb-PU-EGI" id="uUS-NP-TeA"/>
+                                    <segue destination="XbU-LA-y0C" kind="push" identifier="UpdateFactionSegue" id="dob-4c-SyF"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ADq-4L-Qw3" id="qo8-0w-KqT"/>
+                            <outlet property="delegate" destination="ADq-4L-Qw3" id="vwB-ij-tcg"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Factions management" id="kxg-2P-aIR">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Bqj-Ah-fWf">
+                            <connections>
+                                <segue destination="G3c-zO-7qL" kind="modal" identifier="NewFactionSegue" id="fgD-Ff-Vku"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="np3-5a-OCE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2578" y="-370"/>
+        </scene>
+        <!--New Faction View Controller - New Faction-->
+        <scene sceneID="NRn-Nc-xRd">
+            <objects>
+                <viewController id="YUj-E1-TPh" customClass="XWNewFactionViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jcP-2N-umA"/>
+                        <viewControllerLayoutGuide type="bottom" id="DQf-Gj-quT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1hD-Dp-ro8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="z7u-hm-sjk">
+                                <rect key="frame" x="20" y="110" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of new faction:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfv-tk-2WK">
+                                <rect key="frame" x="20" y="84" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="wfv-tk-2WK" secondAttribute="trailing" constant="20" id="9Fc-uD-GLu"/>
+                            <constraint firstItem="z7u-hm-sjk" firstAttribute="leading" secondItem="1hD-Dp-ro8" secondAttribute="leading" constant="20" id="Dip-zw-W4Z"/>
+                            <constraint firstItem="wfv-tk-2WK" firstAttribute="leading" secondItem="1hD-Dp-ro8" secondAttribute="leading" constant="20" id="G6h-n8-Caf"/>
+                            <constraint firstItem="wfv-tk-2WK" firstAttribute="top" secondItem="jcP-2N-umA" secondAttribute="bottom" constant="20" id="YlP-mL-3RU"/>
+                            <constraint firstAttribute="trailing" secondItem="z7u-hm-sjk" secondAttribute="trailing" constant="20" id="eZS-yV-sNX"/>
+                            <constraint firstItem="z7u-hm-sjk" firstAttribute="top" secondItem="wfv-tk-2WK" secondAttribute="bottom" constant="5" id="sTb-sz-bIu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Faction" id="kaP-fT-kcF">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="xyc-xz-DrD">
+                            <connections>
+                                <action selector="cancel:" destination="YUj-E1-TPh" id="xqH-yL-NO3"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="EaH-VY-otE">
+                            <connections>
+                                <action selector="save:" destination="YUj-E1-TPh" id="zCs-c2-ty1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textField" destination="z7u-hm-sjk" id="aqX-pB-DAz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Xy-R4-SvN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3619" y="-697"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="IRh-bx-8vX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="G3c-zO-7qL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6LN-Nw-0O5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="YUj-E1-TPh" kind="relationship" relationship="rootViewController" id="7mP-bT-wb8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bK2-pO-pTi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3133" y="-697"/>
+        </scene>
+        <!--Update Faction Controller - Update Faction-->
+        <scene sceneID="OaA-oS-SZ6">
+            <objects>
+                <viewController id="XbU-LA-y0C" customClass="XWUpdateFactionController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="csy-to-lEg"/>
+                        <viewControllerLayoutGuide type="bottom" id="kvq-dZ-O7x"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZRi-k9-8wi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8xD-xI-MjW">
+                                <rect key="frame" x="20" y="110" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="tWt-KY-2lz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New name for this faction:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vgu-yA-mMs">
+                                <rect key="frame" x="20" y="84" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Vgu-yA-mMs" firstAttribute="leading" secondItem="ZRi-k9-8wi" secondAttribute="leading" constant="20" id="3jy-8Z-Tik"/>
+                            <constraint firstItem="8xD-xI-MjW" firstAttribute="leading" secondItem="ZRi-k9-8wi" secondAttribute="leading" constant="20" id="3mH-rf-peY"/>
+                            <constraint firstAttribute="trailing" secondItem="Vgu-yA-mMs" secondAttribute="trailing" constant="20" id="S7x-My-P2Z"/>
+                            <constraint firstItem="Vgu-yA-mMs" firstAttribute="top" secondItem="csy-to-lEg" secondAttribute="bottom" constant="20" id="c4b-lk-ouB"/>
+                            <constraint firstItem="8xD-xI-MjW" firstAttribute="top" secondItem="Vgu-yA-mMs" secondAttribute="bottom" constant="5" id="fID-jm-B82"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Update Faction" id="cgR-Zk-U5X">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="syU-ef-5gf">
+                            <connections>
+                                <action selector="cancel:" destination="XbU-LA-y0C" id="Z8r-Dm-slr"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="PjI-Kd-DII">
+                            <connections>
+                                <action selector="save:" destination="XbU-LA-y0C" id="nH4-aC-IEq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textField" destination="8xD-xI-MjW" id="BLx-uK-YEY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xAl-JD-DHX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3133" y="2"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="uYd-U3-thA">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="7dX-8F-SPm" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="6Ou-Yy-CKd">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="mpA-F9-Uuo" kind="relationship" relationship="viewControllers" id="gZn-Lo-3oW"/>
+                        <segue destination="tTB-SC-SrK" kind="relationship" relationship="viewControllers" id="Pbq-cM-d7K"/>
+                        <segue destination="PaS-bI-l9B" kind="relationship" relationship="viewControllers" id="yLX-nm-vOx"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bN7-7j-pDl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1383" y="1066"/>
+        </scene>
+        <!--Ship Size Table View Controller - Ship sizes management-->
+        <scene sceneID="B0G-Mx-c7a">
+            <objects>
+                <tableViewController id="5Pi-0V-dyk" customClass="XWShipSizeTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="uj8-j4-6bs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ShipSizeTableViewCell" id="zqn-dc-mBN" customClass="XWShipSizeTableViewCell">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zqn-dc-mBN" id="0Ku-jl-58k">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kD-XL-CUp">
+                                            <rect key="frame" x="20" y="11" width="210" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="7kD-XL-CUp" id="XUK-eK-wo4"/>
+                                    <segue destination="hLI-3Z-NN9" kind="push" identifier="UpdateShipSizeSegue" id="Jid-Gi-Ine"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="5Pi-0V-dyk" id="EUZ-nB-RxE"/>
+                            <outlet property="delegate" destination="5Pi-0V-dyk" id="y66-nf-LlH"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Ship sizes management" id="13Q-um-OVH">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="JFu-di-gZf">
+                            <connections>
+                                <segue destination="d77-q2-jix" kind="modal" identifier="NewShipSizeSegue" id="COA-Zp-tPZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="01X-4J-JeS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2578" y="1066"/>
+        </scene>
+        <!--Ship Type Table View Controller - Ships type management-->
+        <scene sceneID="St5-MJ-v1Q">
+            <objects>
+                <tableViewController id="SUG-Jy-ywr" customClass="XWShipTypeTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="mxf-fb-ul5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ShipTypeTableViewCell" id="wQp-fq-Dfg" customClass="XWShipTypeTableViewCell">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wQp-fq-Dfg" id="hVS-F7-AoX">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXy-ws-xmp">
+                                            <rect key="frame" x="20" y="11" width="247" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="OXy-ws-xmp" firstAttribute="leading" secondItem="hVS-F7-AoX" secondAttribute="leading" constant="20" id="U0S-LD-8la"/>
+                                        <constraint firstItem="OXy-ws-xmp" firstAttribute="top" secondItem="hVS-F7-AoX" secondAttribute="top" constant="11" id="Ugj-3a-a1a"/>
+                                        <constraint firstAttribute="trailing" secondItem="OXy-ws-xmp" secondAttribute="trailing" constant="20" id="qBx-Y1-tkS"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="OXy-ws-xmp" id="O8C-eD-0DO"/>
+                                    <segue destination="jaO-LO-Juw" kind="push" identifier="UpdateShipTypeSegue" id="s46-e3-nQU"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="SUG-Jy-ywr" id="oYM-di-c0t"/>
+                            <outlet property="delegate" destination="SUG-Jy-ywr" id="OD6-A8-E0F"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Ships type management" id="eHX-RY-Acn">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="N5l-He-J2s">
+                            <connections>
+                                <segue destination="XA1-iq-MWI" kind="modal" identifier="NewShipTypeSegue" id="Pfm-0h-qCa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ytn-S7-mIa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2578" y="2472"/>
+        </scene>
+        <!--New Ship Type View Controller - New Ship type-->
+        <scene sceneID="9AO-4m-nj3">
+            <objects>
+                <viewController id="bNK-uy-5l3" customClass="XWNewShipTypeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pAA-yq-wwL"/>
+                        <viewControllerLayoutGuide type="bottom" id="0NZ-Zh-yXb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="27e-Ln-NfI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of new Ship Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEF-WA-Ldx">
+                                <rect key="frame" x="20" y="130" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YDo-65-fqv">
+                                <rect key="frame" x="20" y="156" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wfq-pV-TWg">
+                                <rect key="frame" x="20" y="84" width="15" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4d9-ai-il0">
+                                <rect key="frame" x="20" y="232" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Faction:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2v2-Bu-Jku">
+                                <rect key="frame" x="20" y="206" width="62" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Hr-gs-m7f">
+                                <rect key="frame" x="20" y="282" width="38" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ugO-cn-8aD">
+                                <rect key="frame" x="20" y="308" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9cj-7q-fuE">
+                                <rect key="frame" x="43" y="80" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="l1c-Cc-hiw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Wfq-pV-TWg" firstAttribute="leading" secondItem="27e-Ln-NfI" secondAttribute="leading" constant="20" id="2zY-7o-FgD"/>
+                            <constraint firstItem="ugO-cn-8aD" firstAttribute="top" secondItem="9Hr-gs-m7f" secondAttribute="bottom" constant="5" id="9eD-cG-5Ow"/>
+                            <constraint firstItem="iEF-WA-Ldx" firstAttribute="top" secondItem="9cj-7q-fuE" secondAttribute="bottom" constant="20" id="DvY-fq-4sa"/>
+                            <constraint firstItem="4d9-ai-il0" firstAttribute="leading" secondItem="27e-Ln-NfI" secondAttribute="leading" constant="20" id="GY2-oF-NY8"/>
+                            <constraint firstItem="9cj-7q-fuE" firstAttribute="leading" secondItem="Wfq-pV-TWg" secondAttribute="trailing" constant="8" id="IIk-QM-5gd"/>
+                            <constraint firstAttribute="trailing" secondItem="YDo-65-fqv" secondAttribute="trailing" constant="20" id="IaT-XA-FKb"/>
+                            <constraint firstItem="2v2-Bu-Jku" firstAttribute="top" secondItem="YDo-65-fqv" secondAttribute="bottom" constant="20" id="Ixh-lc-xtJ"/>
+                            <constraint firstAttribute="trailing" secondItem="iEF-WA-Ldx" secondAttribute="trailing" constant="20" id="JaZ-Gc-EKg"/>
+                            <constraint firstItem="ugO-cn-8aD" firstAttribute="leading" secondItem="27e-Ln-NfI" secondAttribute="leading" constant="20" id="Lbp-B1-8bN"/>
+                            <constraint firstItem="9Hr-gs-m7f" firstAttribute="top" secondItem="4d9-ai-il0" secondAttribute="bottom" constant="20" id="PNc-WB-JdT"/>
+                            <constraint firstAttribute="trailing" secondItem="4d9-ai-il0" secondAttribute="trailing" constant="20" id="PYd-Kd-hXU"/>
+                            <constraint firstItem="9cj-7q-fuE" firstAttribute="centerY" secondItem="Wfq-pV-TWg" secondAttribute="centerY" id="TII-B1-Z9y"/>
+                            <constraint firstItem="2v2-Bu-Jku" firstAttribute="leading" secondItem="27e-Ln-NfI" secondAttribute="leading" constant="20" id="TrI-SO-0wW"/>
+                            <constraint firstItem="YDo-65-fqv" firstAttribute="top" secondItem="iEF-WA-Ldx" secondAttribute="bottom" constant="5" id="Y2Q-eV-JPs"/>
+                            <constraint firstItem="Wfq-pV-TWg" firstAttribute="top" secondItem="pAA-yq-wwL" secondAttribute="bottom" constant="20" id="bd6-eZ-nms"/>
+                            <constraint firstItem="iEF-WA-Ldx" firstAttribute="leading" secondItem="27e-Ln-NfI" secondAttribute="leading" constant="20" id="g6Q-rF-Gfw"/>
+                            <constraint firstItem="4d9-ai-il0" firstAttribute="top" secondItem="2v2-Bu-Jku" secondAttribute="bottom" constant="5" id="htu-1y-1Yr"/>
+                            <constraint firstItem="YDo-65-fqv" firstAttribute="leading" secondItem="27e-Ln-NfI" secondAttribute="leading" constant="20" id="oYg-Dv-VkP"/>
+                            <constraint firstAttribute="trailing" secondItem="ugO-cn-8aD" secondAttribute="trailing" constant="20" id="s2m-6y-9gO"/>
+                            <constraint firstItem="9Hr-gs-m7f" firstAttribute="leading" secondItem="27e-Ln-NfI" secondAttribute="leading" constant="20" id="uNp-ai-wr4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Ship type" id="93u-IQ-0fo">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="HqK-1Y-xAk">
+                            <connections>
+                                <action selector="cancel:" destination="bNK-uy-5l3" id="NC6-JJ-Sjp"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="j8D-P1-PEe">
+                            <connections>
+                                <action selector="save:" destination="bNK-uy-5l3" id="DWx-Qb-Rcf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="factionTextField" destination="4d9-ai-il0" id="8mh-Ws-hw0"/>
+                        <outlet property="indexTextField" destination="9cj-7q-fuE" id="BC9-PV-xeI"/>
+                        <outlet property="nameTextField" destination="YDo-65-fqv" id="KPL-gf-0JH"/>
+                        <outlet property="sizeTextField" destination="ugO-cn-8aD" id="nKE-If-f4A"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bjC-jH-Fu5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3659" y="2138"/>
+        </scene>
+        <!--New Ship Size View Controller - New Ship size-->
+        <scene sceneID="7La-Mp-KHR">
+            <objects>
+                <viewController id="G9q-w5-lvV" customClass="XWNewShipSizeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BxL-u4-BuY"/>
+                        <viewControllerLayoutGuide type="bottom" id="9iG-IB-hfx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GD7-CM-tDh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="drQ-4N-xXo">
+                                <rect key="frame" x="20" y="110" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Ship size:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26J-63-Vzq">
+                                <rect key="frame" x="20" y="84" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="26J-63-Vzq" secondAttribute="trailing" constant="20" id="BBn-9l-8L0"/>
+                            <constraint firstAttribute="trailing" secondItem="drQ-4N-xXo" secondAttribute="trailing" constant="20" id="EuD-mo-785"/>
+                            <constraint firstItem="drQ-4N-xXo" firstAttribute="leading" secondItem="GD7-CM-tDh" secondAttribute="leading" constant="20" id="IPJ-IU-iXU"/>
+                            <constraint firstItem="26J-63-Vzq" firstAttribute="leading" secondItem="GD7-CM-tDh" secondAttribute="leading" constant="20" id="LeI-FM-lgU"/>
+                            <constraint firstItem="26J-63-Vzq" firstAttribute="top" secondItem="BxL-u4-BuY" secondAttribute="bottom" constant="20" id="aVr-QL-cvZ"/>
+                            <constraint firstItem="drQ-4N-xXo" firstAttribute="top" secondItem="26J-63-Vzq" secondAttribute="bottom" constant="5" id="sju-TO-fU7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Ship size" id="odF-fu-6tv">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Ofv-tP-0Z7">
+                            <connections>
+                                <action selector="cancel:" destination="G9q-w5-lvV" id="EKc-jk-zme"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="cqM-uv-D8X">
+                            <connections>
+                                <action selector="save:" destination="G9q-w5-lvV" id="Cqx-gu-wn4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nameTextField" destination="drQ-4N-xXo" id="oM6-tj-6oy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hZ2-dB-vNw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3659" y="726"/>
+        </scene>
+        <!--Navigation Controller - Factions-->
+        <scene sceneID="zS6-YB-V4V">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mpA-F9-Uuo" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Factions" id="emx-6g-Hne"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NbA-gJ-Vck">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ADq-4L-Qw3" kind="relationship" relationship="rootViewController" id="EOS-vW-v6o"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HZz-DZ-pGZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2095" y="-370"/>
+        </scene>
+        <!--Navigation Controller - Ship sizes-->
+        <scene sceneID="fEp-mk-A1h">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tTB-SC-SrK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Ship sizes" id="Sb1-Kf-yPU"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yuA-Wq-xiz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5Pi-0V-dyk" kind="relationship" relationship="rootViewController" id="0Eo-tS-SvN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yoU-pm-E7b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2095" y="1066"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ZLH-lA-vwr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d77-q2-jix" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="86i-zR-xgd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="G9q-w5-lvV" kind="relationship" relationship="rootViewController" id="dXn-CW-j2X"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rub-5X-laV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3133" y="726"/>
+        </scene>
+        <!--Update Ship Size View Controller - Update Ship size-->
+        <scene sceneID="XpN-C2-dWN">
+            <objects>
+                <viewController id="hLI-3Z-NN9" customClass="XWUpdateShipSizeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VbU-AL-P0D"/>
+                        <viewControllerLayoutGuide type="bottom" id="9pV-kT-oQN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Tm9-xP-VOS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New name for this ship size:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FnG-xW-FTB">
+                                <rect key="frame" x="20" y="84" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pHj-CA-qjN">
+                                <rect key="frame" x="20" y="110" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="pHj-CA-qjN" secondAttribute="trailing" constant="20" id="1te-lR-7OK"/>
+                            <constraint firstAttribute="trailing" secondItem="FnG-xW-FTB" secondAttribute="trailing" constant="20" id="WNd-ou-MJQ"/>
+                            <constraint firstItem="pHj-CA-qjN" firstAttribute="top" secondItem="FnG-xW-FTB" secondAttribute="bottom" constant="5" id="cmR-iU-VTi"/>
+                            <constraint firstItem="FnG-xW-FTB" firstAttribute="leading" secondItem="Tm9-xP-VOS" secondAttribute="leading" constant="20" id="f8Z-8E-far"/>
+                            <constraint firstItem="pHj-CA-qjN" firstAttribute="leading" secondItem="Tm9-xP-VOS" secondAttribute="leading" constant="20" id="jp4-aR-mKH"/>
+                            <constraint firstItem="FnG-xW-FTB" firstAttribute="top" secondItem="VbU-AL-P0D" secondAttribute="bottom" constant="20" id="n5m-AZ-SGl"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Update Ship size" id="c2H-xj-Z7m">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="yh6-6J-yX0">
+                            <connections>
+                                <action selector="cancel:" destination="hLI-3Z-NN9" id="bbn-WW-i3x"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="KdH-Mp-Tjo">
+                            <connections>
+                                <action selector="save:" destination="hLI-3Z-NN9" id="4jp-6v-YFs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nameTextField" destination="pHj-CA-qjN" id="DaP-O0-6jY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3dh-Kj-lGG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3133" y="1422"/>
+        </scene>
+        <!--Navigation Controller - Ships-->
+        <scene sceneID="21W-0d-l82">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PaS-bI-l9B" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Ships" id="Oe0-QG-ymv"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iF3-Rs-OXH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="SUG-Jy-ywr" kind="relationship" relationship="rootViewController" id="nmx-Pi-czI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jc4-SS-NZb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2095" y="2472"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Q7Q-iz-xTe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XA1-iq-MWI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eh8-bn-qYA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bNK-uy-5l3" kind="relationship" relationship="rootViewController" id="qMA-oU-iQh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iym-58-8T4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3133" y="2138"/>
+        </scene>
+        <!--Update Ship Type View Controller - Update Ship type-->
+        <scene sceneID="WAC-ke-7U4">
+            <objects>
+                <viewController id="jaO-LO-Juw" customClass="XWUpdateShipTypeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8P8-f1-4zH"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fmt-Aw-ZTS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="h3I-wb-Bvu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New name for this Ship type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujR-bL-rM4">
+                                <rect key="frame" x="20" y="84" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vW1-Px-sob">
+                                <rect key="frame" x="20" y="110" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ujR-bL-rM4" secondAttribute="trailing" constant="20" id="20f-Iw-pOw"/>
+                            <constraint firstItem="vW1-Px-sob" firstAttribute="leading" secondItem="h3I-wb-Bvu" secondAttribute="leading" constant="20" id="96D-UZ-2st"/>
+                            <constraint firstItem="ujR-bL-rM4" firstAttribute="leading" secondItem="h3I-wb-Bvu" secondAttribute="leading" constant="20" id="GtS-qa-i1Y"/>
+                            <constraint firstItem="vW1-Px-sob" firstAttribute="top" secondItem="ujR-bL-rM4" secondAttribute="bottom" constant="5" id="f3v-b7-Db5"/>
+                            <constraint firstAttribute="trailing" secondItem="vW1-Px-sob" secondAttribute="trailing" constant="20" id="gFE-Ci-ZY1"/>
+                            <constraint firstItem="ujR-bL-rM4" firstAttribute="top" secondItem="8P8-f1-4zH" secondAttribute="bottom" constant="20" id="qk8-Mq-SuQ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Update Ship type" id="Ovd-Nc-lWG">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="1x1-Kb-tjz">
+                            <connections>
+                                <action selector="cancel:" destination="jaO-LO-Juw" id="fVO-0w-hbe"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="pFq-Aa-oeP">
+                            <connections>
+                                <action selector="save:" destination="jaO-LO-Juw" id="yeP-YQ-DvN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nameTextField" destination="vW1-Px-sob" id="NmJ-br-fAA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zjG-9Z-JdG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3133" y="2864"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

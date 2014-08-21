@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13E28" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Faction" representedClassName="Faction" syncable="YES">
+        <attribute name="name" attributeType="String" defaultValueString="&quot;Rebels&quot;" indexed="YES" syncable="YES"/>
+        <relationship name="shipTypes" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="ShipType" inverseName="faction" inverseEntity="ShipType" syncable="YES"/>
+        <relationship name="squadrons" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Squadron" inverseName="faction" inverseEntity="Squadron" syncable="YES"/>
+    </entity>
+    <entity name="Pilot" representedClassName="Pilot" syncable="YES">
+        <attribute name="accel" optional="YES" attributeType="Boolean" defaultValueString="0" syncable="YES"/>
+        <attribute name="agility" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="barrel_roll" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="cloak" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="evade" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="focus" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="hull" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="ident" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="lock" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="primary_weapon" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="shield" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="skill" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="unique" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="shipType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ShipType" inverseName="pilots" inverseEntity="ShipType" syncable="YES"/>
+        <relationship name="spaceships" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Spaceship" inverseName="pilot" inverseEntity="Spaceship" syncable="YES"/>
+        <relationship name="upgrades_allowed" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UpgradeType" inverseName="pilots" inverseEntity="UpgradeType" syncable="YES"/>
+    </entity>
+    <entity name="ShipSize" representedClassName="ShipSize" syncable="YES">
+        <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="shipTypes" optional="YES" toMany="YES" deletionRule="Deny" ordered="YES" destinationEntity="ShipType" inverseName="size" inverseEntity="ShipType" syncable="YES"/>
+        <relationship name="upgradetypes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UpgradeType" inverseName="sizes" inverseEntity="UpgradeType" syncable="YES"/>
+    </entity>
+    <entity name="ShipType" representedClassName="ShipType" syncable="YES">
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="faction" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Faction" inverseName="shipTypes" inverseEntity="Faction" syncable="YES"/>
+        <relationship name="pilots" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="Pilot" inverseName="shipType" inverseEntity="Pilot" syncable="YES"/>
+        <relationship name="size" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ShipSize" inverseName="shipTypes" inverseEntity="ShipSize" syncable="YES"/>
+        <relationship name="spaceships" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Spaceship" inverseName="shipType" inverseEntity="Spaceship" syncable="YES"/>
+        <relationship name="upgradestypes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UpgradeType" inverseName="shipTypes" inverseEntity="UpgradeType" syncable="YES"/>
+    </entity>
+    <entity name="Spaceship" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="pilot" optional="YES" maxCount="1" deletionRule="Deny" destinationEntity="Pilot" inverseName="spaceships" inverseEntity="Pilot" syncable="YES"/>
+        <relationship name="shipType" maxCount="1" deletionRule="Deny" destinationEntity="ShipType" inverseName="spaceships" inverseEntity="ShipType" syncable="YES"/>
+        <relationship name="squadrons" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Squadron" inverseName="spaceships" inverseEntity="Squadron" syncable="YES"/>
+        <relationship name="upgrades" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Upgrade" inverseName="spaceships" inverseEntity="Upgrade" syncable="YES"/>
+    </entity>
+    <entity name="Squadron" syncable="YES">
+        <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="faction" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Faction" inverseName="squadrons" inverseEntity="Faction" syncable="YES"/>
+        <relationship name="spaceships" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Spaceship" inverseName="squadrons" inverseEntity="Spaceship" syncable="YES"/>
+    </entity>
+    <entity name="Upgrade" syncable="YES">
+        <attribute name="accel" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="agility" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="barrel_roll" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="cloak" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="evade" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="focus" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="hull" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="initiative" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="lock" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="shield" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="weapon" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="spaceships" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Spaceship" inverseName="upgrades" inverseEntity="Spaceship" syncable="YES"/>
+        <relationship name="upgradeType" optional="YES" maxCount="1" deletionRule="Deny" destinationEntity="UpgradeType" inverseName="upgrades" inverseEntity="UpgradeType" syncable="YES"/>
+    </entity>
+    <entity name="UpgradeType" syncable="YES">
+        <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="pilots" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pilot" inverseName="upgrades_allowed" inverseEntity="Pilot" syncable="YES"/>
+        <relationship name="shipTypes" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="ShipType" inverseName="upgradestypes" inverseEntity="ShipType" syncable="YES"/>
+        <relationship name="sizes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ShipSize" inverseName="upgradetypes" inverseEntity="ShipSize" syncable="YES"/>
+        <relationship name="upgrades" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Upgrade" inverseName="upgradeType" inverseEntity="Upgrade" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Faction" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Pilot" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="ShipSize" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="ShipType" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Spaceship" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Squadron" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Upgrade" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="UpgradeType" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
+</model>
